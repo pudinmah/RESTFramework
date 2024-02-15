@@ -1,0 +1,21 @@
+from posts.models import Post
+
+new_post1=Post(
+    title="REACTJS for haters",
+    content="This is a video for React haters",
+)
+new_post1.save()
+
+new_post2=Post(
+    title="ANGULAR for haters",
+    content="This is a video for Angular haters",
+)
+new_post2.save()
+
+new_post3=Post(
+    title="Vue for haters",
+    content="This is a video for Vue haters",
+)
+new_post3.save()
+
+Post.objects.all()
