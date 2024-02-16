@@ -39,3 +39,10 @@ serializer.data
 json_data=JSONRenderer().render(serializer.data)
 json_data
 
+// Deserializing JSON
+import io
+stream=io.BytesIO(json_data)
+from rest_framework.parsers import JSONParser
+dict_data=JSONParser().parse(stream)
+dict_data
+
