@@ -1,3 +1,4 @@
+// Creating a database model
 from posts.models import Post
 
 new_post1=Post(
@@ -19,3 +20,22 @@ new_post3=Post(
 new_post3.save()
 
 Post.objects.all()
+
+
+// Serializing database model instances
+from posts.serializers import PostSerializer
+from posts.models import Post
+from rest_framework.renderers import JSONRenderer
+
+new_post=Post(
+    title="Java for haters",
+    content="This is a video for java haters",
+)
+new_post.save()
+serializer=PostSerializer(instance=new_post)
+serializer
+serializer.data
+
+json_data=JSONRenderer().render(serializer.data)
+json_data
+
