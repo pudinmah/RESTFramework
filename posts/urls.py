@@ -1,16 +1,12 @@
-from django.contrib import admin
-from django.urls import path,include
-from posts.views import PostViewset
-from rest_framework.routers import DefaultRouter
-
-router= DefaultRouter()
-
-router.register("",PostViewset,basename="posts")
+from . import views
+from django.urls import path
 
 urlpatterns = [
-
-    path('admin/',admin.site.urls),
-    path("", include(router.urls))
+    path("homepage/", views.homepage, name="posts_home"),
+    path("", views.PostListCreateView.as_view(), name="list_posts"),
+    path(
+        "<int:pk>/",
+        views.PostRetrieveUpdateDeleteView.as_view(),
+        name="post_detail",
+    ),
 ]
-    
-    
